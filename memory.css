@@ -1,0 +1,82 @@
+body {
+  text-align: center;
+  background: #111;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+h1 {color: #facc15;}
+
+.game-board {
+  width: 360px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  gap: 10px;
+}
+
+.card {
+  width: 80px;
+  height: 80px;
+  background: #222;
+  border-radius: 10px;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid #333;
+  transition: 0.3s;
+}
+.card.flipped {
+  background: #facc15;
+  color: #111;
+  border-color: #fff;
+}
+#restartBtn {
+  padding: 10px 16px;
+  margin-top: 15px;
+  background: #facc15;
+  color: #000;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+nav {
+      width: 97%;
+      height: 70px;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+    }
+
+    .brand {
+      font-size: 30px;
+      font-weight: bold;
+      color: #00ffd5;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 25px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00ffd5;
+    }
+
+    .social-icons a {
+      color: #e1cbcb;
+      margin-left: 15px;
+      font-size: 30px;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #00ffd5;
+    }

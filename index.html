@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>SK Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      width: 100%;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .brand {
+      font-size: 30px;
+      color: #38bdf8;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 25px;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    .social i {
+      font-size: 30px;
+    }
+
+    .social a {
+      color: white;
+      margin-left: 10px;
+    }
+
+    .social a:hover {
+      color: #38bdf8;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.8;
+    }
+
+    /* ===== GAME SECTION ===== */
+    .games-section {
+      padding: 30px;
+    }
+
+    .games-section h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .game-card {
+      background: #020617;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 1px solid #1e293b;
+    }
+
+    .game-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 15px #38bdf8;
+    }
+
+    .game-card i {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #38bdf8;
+    }
+
+    .game-card h3 {
+      font-size: 20px;
+      margin: 8px 0;
+    }
+
+    .game-card p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* ===== COMING SOON ===== */
+    .coming-soon-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .coming-card {
+      width: 90%;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #38bdf8;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .coming-text {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #38bdf8;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 10px #38bdf8;
+      }
+
+      100% {
+        text-shadow: 0 0 20px #00eaff;
+      }
+    }
+
+    .tag {
+      background: #38bdf8;
+      padding: 6px 12px;
+      color: #020617;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #020617;
+      margin-top: 40px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    /* 📌 MOBILE FIX */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .brand {
+        font-size: 22px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="brand">SK</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="games.html">Game</a>
+      <a href="about.html">About</a>
+    </div>
+
+    <div class="social">
+      <a href="https://instagram.com/skvlogergj32" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/1CD5ZxmPUz/" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Welcome to SK Games 🎮</h1>
+    <p>Play fun & interactive browser games</p>
+  </section>
+
+  <!-- Popular Games -->
+  <section class="games-section">
+    <h2>Popular Games</h2>
+
+    <div class="games-grid">
+      <div class="game-card" onclick="location.href='tictactoe.html'">
+        <i class="fas fa-times"></i>
+        <h3>Tic Tac Toe</h3>
+        <p>Play & test your brain</p>
+      </div>
+
+      <div class="game-card" onclick="location.href='rock-paper-scissors.html'">
+        <i class="fas fa-hand-rock"></i>
+        <h3>Rock Paper Scissors</h3>
+        <p>Beat the computer!</p>
+      </div>
+
+      <div class="game-card" onclick="location.href='memory.html'">
+        <i class="fas fa-brain"></i>
+        <h3>Memory Game</h3>
+        <p>Train your memory</p>
+      </div>
+    </div><br>
+    <div class="game-card" onclick="location.href='snake.html'">
+      <span style="font-size:35px;">🐍</span>
+      <h3>Snake Game</h3>
+      <p>Eat food & grow</p>
+    </div>
+
+    <!-- COMING SOON -->
+    <div class="coming-soon-container">
+      <div class="coming-card">
+        <span class="coming-text">🎮 New Games Coming Soon...</span><br>
+        <span class="tag">Stay Tuned 🚀</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2025 SK Games | All Rights Reserved</footer>
+</body>
+
+</html>

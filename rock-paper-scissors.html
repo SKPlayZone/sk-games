@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rock Paper Scissors</title>
+
+  <!-- Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #0a0f24;
+      color: #fff;
+      padding-top: 100px;
+      margin: 0;
+    }
+    h1 { color: #facc15; font-size: 32px; }
+    .choices {display: flex;justify-content: center;gap: 20px;margin: 30px 0;}
+    button {
+      padding: 12px 18px;font-size: 20px;cursor: pointer;border-radius: 10px;
+      background: #222;color: #fff;border: 2px solid #333;transition: 0.3s;
+    }
+    button:hover { background: #444; border-color: #facc15; transform: scale(1.1);}
+    #result { font-size: 30px; margin-top: 20px; font-weight: bold;}
+    
+    /* Navbar */
+    .navbar {
+      width: 100%;background: #020617;display: flex;justify-content: space-between;
+      align-items: center;padding: 18px 40px;position: fixed;top: 0;z-index: 10;
+    }
+    .nav-left{font-size: 30px;font-weight: bold;color:#00eaff;}
+    .nav-center{list-style:none;display:flex;gap:35px;}
+    .nav-center li a{color:white;text-decoration:none;font-size:25px;transition:0.3s;}
+    .nav-center li a:hover{color:#00eaff;}
+    .nav-right i{font-size:30px;margin-left:15px;color:white;transition:0.3s;}
+    .nav-right i:hover{color:#00eaff;transform:scale(1.2);}
+  </style>
+</head>
+
+<body>
+  <!-- 🎵 Sound Files -->
+  <audio id="clickSound" src="pop-423717.mp3"></audio>
+  <audio id="drawSound" src="light-switch-on-382714.mp3"></audio>
+  <audio id="winSound" src="victory.mp3"></audio>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-left">SK</div>
+
+    <ul class="nav-center">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="games.html">Game</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="https://www.instagram.com/skvlogergj32" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/1CD5ZxmPUz/" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+  </nav>
+
+
+  <!-- GAME -->
+  <h1>Rock Paper Scissors ✊✋✌️</h1>
+  <p>Choose One 👇</p>
+
+  <div class="choices">
+    <button onclick="playGame('rock')">Rock ✊</button>
+    <button onclick="playGame('paper')">Paper ✋</button>
+    <button onclick="playGame('scissors')">Scissors ✌️</button>
+  </div>
+
+  <h2 id="computer"></h2>
+  <h1 id="result"></h1>
+
+
+  <!-- SCRIPT -->
+  <script>
+    const clickSound = document.getElementById("clickSound");
+    const winSound = document.getElementById("winSound");
+    const drawSound = document.getElementById("drawSound");
+
+    function playGame(playerChoice) {
+      clickSound.currentTime = 0;
+      clickSound.play(); // 🔊 CLICK SOUND
+
+      const choices = ["rock", "paper", "scissors"];
+      const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+      document.getElementById("computer").innerText =
+        `Computer chose: ${computerChoice.toUpperCase()}`;
+
+      if (playerChoice === computerChoice) {
+        drawSound.play(); // 🔊 DRAW SOUND
+        document.getElementById("result").innerText = "🤝 It's a Draw!";
+        return;
+      }
+
+      const win =
+        (playerChoice === "rock" && computerChoice === "scissors") ||
+        (playerChoice === "paper" && computerChoice === "rock") ||
+        (playerChoice === "scissors" && computerChoice === "paper");
+
+      if (win) {
+        winSound.currentTime = 0;
+        winSound.play(); // 🔊 WIN SOUND
+        document.getElementById("result").innerText = "🎉 YOU WIN!";
+        celebrate();
+      } else {
+        document.getElementById("result").innerText = "😞 YOU LOSE!";
+      }
+    }
+
+    function celebrate() {
+      let end = Date.now() + 1200;
+      (function frame() {
+        confetti({ particleCount: 7, angle: 60, spread: 55, origin: { x: 0 } });
+        confetti({ particleCount: 7, angle: 120, spread: 55, origin: { x: 1 } });
+        if (Date.now() < end) requestAnimationFrame(frame);
+      })();
+    }
+  </script>
+
+</body>
+</html>
