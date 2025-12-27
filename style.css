@@ -171,7 +171,7 @@ body {
   color: white;
 }
 
-NAVBAR
+/* NAVBAR
 .navbar {
   width: 100%;
   height: 60px;
@@ -183,7 +183,7 @@ NAVBAR
   position: sticky;
   top: 0;
   z-index: 1000;
-}
+} */
 
 .logo {
   font-size: 30px;
