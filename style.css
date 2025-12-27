@@ -185,7 +185,7 @@ body {
   z-index: 1000;
 } */
 
-.logo {
+/* .logo {
   font-size: 30px;
   font-weight: bold;
   color: #00c6ff;
@@ -215,10 +215,10 @@ body {
 
 .social a:hover {
   color: #00c6ff;
-}
+} */
 
 /* ⭐ Coming Soon Section Styling */
-.coming-soon-container {
+/* .coming-soon-container {
   text-align: center;
   margin: 60px auto;
   color: white;
@@ -265,10 +265,10 @@ body {
   font-size: 14px;
   font-weight: bold;
   color: #020617;
-}
+} */
 
 /* ✨ Glow Animation */
-@keyframes glow {
+/* @keyframes glow {
   0% { color: #38bdf8; text-shadow: 0 0 10px #38bdf8; }
   100% { color: #00eaff; text-shadow: 0 0 20px #00eaff; }
-}
+} */

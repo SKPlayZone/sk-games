@@ -1,37 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>All Games - SK</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ICONS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="games.css">
 </head>
+
 <body>
 
+<!-- 🚀 NAVBAR -->
 <nav class="navbar">
   <div class="logo">SK</div>
+
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="games.html">Game</a></li>
+    <li><a class="active" href="games.html">Game</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
+
   <div class="social">
-    <a href="https://instagram.com/skvlogergj32" target="_blank">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.facebook.com/share/1CD5ZxmPUz/" target="_blank">
-      <i class="fab fa-facebook"></i>
-    </a>
+    <a href="https://instagram.com/skvlogergj32" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/share/1CD5ZxmPUz/" target="_blank"><i class="fab fa-facebook"></i></a>
   </div>
 </nav>
 
-<h1 style="text-align:center; margin-top:40px;">🎮 All Games</h1>
 
+<h1 class="title">🎮 All Games</h1>
+
+<!-- 🎲 GAME GRID -->
 <div class="games-container">
-  <div class="game-card" onclick="location.href='tictactoe.html'">Tic Tac Toe</div>
-  <div class="game-card" onclick="location.href='rock-paper-scissors.html'">Rock Paper Scissors</div>
-  <div class="game-card" onclick="location.href='memory.html'">Memory Game</div>
-  <div class="game-card" onclick="location.href='snake.html'">Snake Game</div>
+  
+  <div class="game-card" onclick="location.href='tictactoe.html'">
+      <i class="fas fa-times"></i>
+      <h3>Tic Tac Toe</h3>
+  </div>
+
+  <div class="game-card" onclick="location.href='rock-paper-scissors.html'">
+      <i class="fas fa-hand-rock"></i>
+      <h3>Rock Paper Scissors</h3>
+  </div>
+
+  <div class="game-card" onclick="location.href='memory.html'">
+      <i class="fas fa-brain"></i>
+      <h3>Memory Game</h3>
+  </div>
+
+  <div class="game-card" onclick="location.href='snake.html'">
+      <span style="font-size:45px;">🐍</span>
+      <h3>Snake Game</h3>
+  </div>
+
 </div>
 
 </body>
