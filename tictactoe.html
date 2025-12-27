@@ -1,85 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Tic Tac Toe</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<!DOCTYPE html>
-<html lang="en">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe | SK Games</title>
 
-<head>
-  <meta charset="UTF-8">
-  <title>SK Game</title>
-
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
-</head>
 
-<body>
-  <!-- 🔊 SOUND FILES -->
+  <!-- Sounds -->
   <audio id="clickSound" src="pop-423717.mp3"></audio>
   <audio id="drawSound" src="light-switch-on-382714.mp3"></audio>
   <audio id="winSound" src="victory.mp3"></audio>
+</head>
 
+<body>
 
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-left">SK</div>
-
     <ul class="nav-center">
       <li><a href="index.html">Home</a></li>
       <li><a href="games.html">Game</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
-
     <div class="nav-right">
-      <a href="https://www.instagram.com/skvlogergj32" target="_blank">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.facebook.com/share/1CD5ZxmPUz/" target="_blank">
-        <i class="fab fa-facebook"></i>
-      </a>
+      <a href="https://www.instagram.com/skvlogergj32" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/share/1CD5ZxmPUz" target="_blank"><i class="fab fa-facebook"></i></a>
     </div>
   </nav>
 
-</body>
+  <!-- GAME -->
+  <h1 class="title">Tic Tac Toe</h1>
+  <div id="message" class="status"></div>
 
-</html>
-
-<body>
-
-  <h1>Tic Tac Toe</h1>
-
-  <div id="message"></div>
-
-  <div id="board">
+  <div id="board" class="board">
     <div class="cell" data-cell></div>
     <div class="cell" data-cell></div>
     <div class="cell" data-cell></div>
-
     <div class="cell" data-cell></div>
     <div class="cell" data-cell></div>
     <div class="cell" data-cell></div>
-
     <div class="cell" data-cell></div>
     <div class="cell" data-cell></div>
     <div class="cell" data-cell></div>
   </div>
 
-  <button id="restartButton">Restart Game</button>
+  <button id="restartButton" class="btn">Restart Game</button>
+  <div id="winBanner" class="winBanner"></div>
 
-  <div id="winBanner"></div>
-
-  <!-- Confetti library -->
+  <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-  <!-- Your Script -->
   <script src="script.js"></script>
-
 </body>
-
 </html>
