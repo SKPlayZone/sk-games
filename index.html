@@ -1,118 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SK Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
-    body{background:#0f172a;color:white;}
-
-    /* ===== NAVBAR ===== */
-    .navbar{
-      width:100%;background:#020617;display:flex;
-      align-items:center;justify-content:space-between;
-      padding:10px 18px;position:sticky;top:0;z-index:999;
-    }
-    .brand{font-size:26px;font-weight:bold;color:#38bdf8;}
-    .nav-links{display:flex;gap:25px;}
-    .nav-links a{color:#fff;text-decoration:none;font-size:20px;}
-    .nav-links a:hover{color:#38bdf8;}
-
-    .social i{font-size:24px;}
-    .social a{color:white;margin-left:10px;}
-    .social a:hover{color:#38bdf8;}
-
-    /* ===== HERO ===== */
-    .hero{text-align:center;padding:50px 20px;}
-    .hero h1{font-size:32px;margin-bottom:10px;}
-    .hero p{font-size:18px;opacity:0.8;}
-
-    /* ===== GAME SECTION ===== */
-    .games-section{padding:25px;}
-    .games-section h2{
-      text-align:center;font-size:28px;margin-bottom:25px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
-    .games-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-      gap:20px;
+    body {
+      background: #0f172a;
+      color: white;
     }
 
-    .game-card{
-      background:#020617;border-radius:12px;padding:20px;
-      text-align:center;cursor:pointer;transition:0.3s;
-      border:1px solid #1e293b;
-    }
-    .game-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 0 15px #38bdf8;
-    }
-    .game-card i{font-size:40px;color:#38bdf8;margin-bottom:10px;}
-    .game-card h3{font-size:20px;margin:5px 0;}
-    .game-card p{font-size:14px;opacity:0.8;}
-
-    /* ===== COMING SOON ===== */
-    .coming-soon-container{text-align:center;margin-top:45px;}
-    .coming-card{
-      width:90%;margin:auto;padding:18px;border-radius:10px;
-      border:2px solid #38bdf8;background:rgba(255,255,255,0.05);
-    }
-    .coming-text{
-      font-size:20px;color:#38bdf8;margin-bottom:8px;
-      animation:glow 1.5s infinite alternate;
-    }
-    @keyframes glow{
-      0%{text-shadow:0 0 8px #38bdf8;}
-      100%{text-shadow:0 0 18px #00eaff;}
-    }
-    .tag{
-      background:#38bdf8;padding:6px 12px;color:#020617;
-      border-radius:6px;font-weight:bold;
+    /* ===== NAVBAR (MATCHED TO GAMES PAGE) ===== */
+    .navbar {
+      width: 100%;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    /* ===== FOOTER ===== */
-    footer{
-      text-align:center;padding:18px;background:#020617;
-      margin-top:40px;font-size:14px;opacity:0.7;
+    .brand {
+      font-size: 30px;
+      color: #38bdf8;
+      font-weight: bold;
     }
 
-    /* ===== MOBILE VIEW ===== */
-    @media(max-width:768px){
-      .navbar{flex-direction:column;gap:8px;}
-      .brand{font-size:22px;}
-      .nav-links a{font-size:18px;}
-      .social i{font-size:22px;}
-      .hero h1{font-size:26px;}
-      .games-grid{grid-template-columns:1fr 1fr;}
+    .nav-center {
+      display: flex;
+      gap: 30px;
     }
 
-    @media(max-width:480px){
-      .games-grid{grid-template-columns:1fr;}
-      .hero h1{font-size:24px;}
+    .nav-center a {
+      color: white;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 500;
     }
 
+    .nav-center a:hover {
+      color: #38bdf8;
+    }
+
+    .nav-icons i {
+      font-size: 26px;
+      margin-left: 10px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .nav-icons i:hover {
+      color: #38bdf8;
+    }
+
+    /* ===== MOBILE NAVBAR FIX ===== */
+    @media(max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 8px;
+        padding: 15px;
+        text-align: center;
+      }
+
+      .brand {
+        font-size: 26px;
+      }
+
+      .nav-center {
+        gap: 18px;
+      }
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      text-align: center;
+      padding: 45px 20px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-top: 8px;
+      opacity: 0.85;
+    }
+
+    /* ===== GAMES CARDS ===== */
+    .games-title {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .game-card {
+      background: #020617;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 1px solid #1e293b;
+    }
+
+    .game-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #38bdf8;
+    }
+
+    .game-card .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #38bdf8;
+    }
+
+    .game-card h3 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .game-card p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #020617;
+      margin-top: 40px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- NAV -->
+  <!-- 🟦 NAVBAR -->
   <div class="navbar">
     <div class="brand">SK</div>
 
-    <div class="nav-links">
+    <div class="nav-center">
       <a href="index.html">Home</a>
       <a href="games.html">Game</a>
       <a href="about.html">About</a>
     </div>
 
-    <div class="social">
+    <div class="nav-icons">
       <a href="https://instagram.com/skvlogergj32" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://facebook.com/share/1CD5ZxmPUz/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.facebook.com/share/1CD5ZxmPUz/" target="_blank"><i class="fab fa-facebook"></i></a>
     </div>
   </div>
 
@@ -122,36 +185,35 @@
     <p>Play free browser games & have fun</p>
   </section>
 
-  <!-- GAMES -->
-  <section class="games-section">
-    <h2>🎮 All Games</h2>
+  <h2 class="games-title">🎮 All Games</h2>
 
-    <div class="games-grid">
-      <div class="game-card" onclick="location.href='tictactoe.html'">
-        <i class="fas fa-times"></i><h3>Tic Tac Toe</h3><p>Play & win</p>
-      </div>
-
-      <div class="game-card" onclick="location.href='rock-paper-scissors.html'">
-        <i class="fas fa-hand-rock"></i><h3>Rock Paper Scissors</h3><p>Beat the computer</p>
-      </div>
-
-      <div class="game-card" onclick="location.href='memory.html'">
-        <i class="fas fa-brain"></i><h3>Memory Game</h3><p>Train your brain</p>
-      </div>
-
-      <div class="game-card" onclick="location.href='snake.html'">
-        <span style="font-size:35px;">🐍</span><h3>Snake Game</h3><p>Classic snake grow</p>
-      </div>
+  <div class="games-grid">
+    <div class="game-card" onclick="location.href='tictactoe.html'">
+      <i class="fas fa-times icon"></i>
+      <h3>Tic Tac Toe</h3>
+      <p>Play & win</p>
     </div>
 
-    <div class="coming-soon-container">
-      <div class="coming-card">
-        <span class="coming-text">🎮 New Games Coming Soon...</span><br><br>
-        <span class="tag">COMING SOON 🚧</span>
-      </div>
+    <div class="game-card" onclick="location.href='rock-paper-scissors.html'">
+      <i class="fas fa-hand-rock icon"></i>
+      <h3>Rock Paper Scissors</h3>
+      <p>Beat the computer</p>
     </div>
-  </section>
+
+    <div class="game-card" onclick="location.href='memory.html'">
+      <i class="fas fa-brain icon"></i>
+      <h3>Memory Game</h3>
+      <p>Train your memory</p>
+    </div>
+
+    <div class="game-card" onclick="location.href='snake.html'">
+      <span class="icon">🐍</span>
+      <h3>Snake Game</h3>
+      <p>Eat food & grow</p>
+    </div>
+  </div>
 
   <footer>© 2025 SK Games | All Rights Reserved</footer>
+
 </body>
 </html>
