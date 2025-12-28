@@ -2,20 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Memory Game | SK</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Game | SK</title>
 
+<!-- ICONS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="memory.css">
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-</head>
 
+<!-- CSS FILE -->
+<link rel="stylesheet" href="memory.css">
+
+</head>
 <body>
 
 <audio id="clickSound" src="pop-423717.mp3"></audio>
 <audio id="winSound" src="victory.mp3"></audio>
 
-<!-- ⭐ SAME NAVBAR AS OTHER PAGES -->
+<!-- 🚀 NAVBAR (same like home) -->
 <nav class="navbar">
   <div class="logo">SK</div>
 
@@ -31,12 +33,14 @@
   </div>
 </nav>
 
+<!-- ⭐ Heading -->
+<h1 class="title">🃏 Memory Card Game</h1>
+<p class="subtitle">Find all the matching pairs!</p>
 
-<h1 class="title">🧠 Memory Card Game</h1>
-<h3 id="status">Find all the matching pairs!</h3>
-
+<!-- 🟥 GAME -->
 <div class="game-board" id="gameBoard"></div>
 
+<!-- 🔄 BUTTON -->
 <button id="restartBtn">🔄 Restart</button>
 
 <script src="memory.js"></script>
