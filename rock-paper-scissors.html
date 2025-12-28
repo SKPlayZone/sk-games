@@ -10,18 +10,14 @@
 
 <style>
   *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
-
   body{
     background:#0f172a;
-    color:white;
+    color:#fff;
     text-align:center;
-    padding-top:100px;
     min-height:100vh;
-    display:flex;
-    flex-direction:column;
   }
 
-  /* 🌐 NAVBAR (Same as Game Page) */
+  /* 🌐 NAVBAR (GAME PAGE JAISE) */
   .navbar{
     width:100%;
     background:#020617;
@@ -29,115 +25,91 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    position:fixed;
+    position:sticky;
     top:0;
-    z-index:99;
+    z-index:999;
   }
-
-  .nav-left{
-    font-size:28px;
-    font-weight:bold;
-    color:#38bdf8;
-  }
-
-  .nav-center{
-    list-style:none;
-    display:flex;
-    gap:25px;
-  }
-
-  .nav-center a{
+  .logo{font-size:28px;font-weight:bold;color:#38bdf8;}
+  .nav-links{display:flex;gap:25px;list-style:none;}
+  .nav-links a{
     text-decoration:none;
     color:white;
     font-size:20px;
     transition:0.3s;
   }
+  .nav-links a:hover,
+  .nav-links .active{color:#38bdf8;font-weight:600;}
 
-  .nav-center a:hover,
-  .nav-center .active{
-    color:#38bdf8;
-    font-weight:600;
-  }
-
-  .nav-right a i{
+  .social a{
     font-size:24px;
-    margin-left:12px;
     color:white;
-    transition:0.3s;
+    margin-left:12px;
   }
+  .social a:hover{color:#38bdf8;}
 
-  .nav-right a:hover i{
+  /* PAGE CONTENT */
+  h1{
+    margin-top:40px;
+    font-size:32px;
     color:#38bdf8;
+    font-weight:700;
   }
-
-  /* 🎮 GAME AREA */
-  h1{font-size:32px;color:#38bdf8;margin:20px 0;}
-  p{font-size:18px;opacity:.8;}
+  p{font-size:18px;opacity:0.8;margin-bottom:10px;}
 
   .choices{
     display:flex;
-    justify-content:center;
+    flex-direction:column;
     gap:15px;
-    margin:25px 0;
-    flex-wrap:wrap;
+    width:90%;
+    max-width:420px;
+    margin:20px auto;
   }
-
   .choices button{
     padding:14px;
-    width:140px;
-    font-size:20px;
-    border-radius:10px;
+    font-size:22px;
     background:#1e293b;
-    border:2px solid transparent;
+    border:none;
+    border-radius:10px;
     color:white;
-    transition:0.3s;
-    cursor:pointer;
+    transition:.3s;
   }
-
   .choices button:hover{
-    transform:translateY(-6px);
-    border-color:#38bdf8;
     background:#243347;
+    box-shadow:0 0 10px #38bdf8;
+    transform:scale(1.03);
   }
 
-  #computer{margin-top:10px;font-size:22px;color:#38bdf8;}
-  #result{font-size:28px;margin-top:15px;font-weight:bold;color:#facc15;}
+  #result{margin-top:20px;font-size:28px;color:#facc15;font-weight:bold;}
+  #computer{margin-top:10px;font-size:22px;}
 
-  /* 📱 Mobile */
-  @media(max-width:650px){
-    .navbar{flex-direction:column;gap:8px;}
-    .nav-center a{font-size:18px;}
-    .choices button{width:90%;}
+  /* 📱 MOBILE FIX */
+  @media(max-width:600px){
+    .nav-links{gap:10px;}
+    .nav-links a{font-size:16px;}
+    .logo{font-size:24px;}
+    h1{font-size:26px;margin-top:30px;}
+    .choices button{font-size:20px;}
   }
-
 </style>
 </head>
 
 <body>
 
-<!-- 🔊 Sounds -->
-<audio id="clickSound" src="pop-423717.mp3"></audio>
-<audio id="drawSound" src="light-switch-on-382714.mp3"></audio>
-<audio id="winSound" src="victory.mp3"></audio>
-
 <!-- 🌐 NAVBAR -->
 <nav class="navbar">
-  <div class="nav-left">SK</div>
-
-  <ul class="nav-center">
+  <div class="logo">SK</div>
+  <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a class="active" href="games.html">Game</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
-
-  <div class="nav-right">
+  <div class="social">
     <a href="https://instagram.com/skvlogergj32" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.facebook.com/share/1CD5ZxmPUz/" target="_blank"><i class="fab fa-facebook"></i></a>
   </div>
 </nav>
 
-
-<!-- 🎮 GAME -->
+<!-- GAME UI -->
 <h1>Rock Paper Scissors ✊✋✌️</h1>
 <p>Choose one to play 👇</p>
 
@@ -150,44 +122,44 @@
 <h2 id="computer"></h2>
 <h1 id="result"></h1>
 
-<!-- 🎆 SCRIPT -->
+<!-- SCRIPT -->
 <script>
-const clickSound=document.getElementById("clickSound");
-const winSound=document.getElementById("winSound");
-const drawSound=document.getElementById("drawSound");
+const clickSound = new Audio("pop-423717.mp3");
+const winSound = new Audio("victory.mp3");
+const drawSound = new Audio("light-switch-on-382714.mp3");
 
-function playGame(player){
+function playGame(playerChoice){
   clickSound.play();
   const choices=["rock","paper","scissors"];
   const comp=choices[Math.floor(Math.random()*3)];
 
-  document.getElementById("computer").innerText="Computer chose: "+comp.toUpperCase();
+  document.getElementById("computer").innerText=`Computer chose: ${comp.toUpperCase()}`;
 
-  if(player===comp){
+  if(playerChoice===comp){
     drawSound.play();
-    return document.getElementById("result").innerText="🤝 DRAW";
+    document.getElementById("result").innerText="🤝 DRAW";
+    return;
   }
 
   const win =
-    (player==="rock" && comp==="scissors") ||
-    (player==="paper" && comp==="rock") ||
-    (player==="scissors" && comp==="paper");
+    (playerChoice==="rock"&&comp==="scissors")||
+    (playerChoice==="paper"&&comp==="rock")||
+    (playerChoice==="scissors"&&comp==="paper");
 
   if(win){
     winSound.play();
     document.getElementById("result").innerText="🎉 YOU WIN!";
     celebrate();
   } else {
-    document.getElementById("result").innerText="😞 YOU LOSE!";
+    document.getElementById("result").innerText="😞 YOU LOSE";
   }
 }
 
 function celebrate(){
-  let end=Date.now()+1200;
+  let t = Date.now()+800;
   (function frame(){
-    confetti({particleCount:10,spread:60,origin:{x:0}});
-    confetti({particleCount:10,spread:60,origin:{x:1}});
-    if(Date.now()<end)requestAnimationFrame(frame);
+    confetti({ particleCount:12, spread:55 });
+    if(Date.now()<t) requestAnimationFrame(frame);
   })();
 }
 </script>
