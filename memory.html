@@ -4,39 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Memory Game | SK</title>
-
+<link rel="stylesheet" href="memory.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-<link rel="stylesheet" href="memory.css">
 </head>
 
 <body>
-
 <audio id="clickSound" src="pop-423717.mp3"></audio>
 <audio id="winSound" src="victory.mp3"></audio>
 
-
-<!-- 🚀 NAVBAR (Same design as Game Page) -->
+<!-- 🔥 NEW NAVBAR (same as other pages) -->
 <nav class="navbar">
   <div class="logo">SK</div>
+
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="games.html" class="active">Game</a></li>
+    <li><a href="games.html">Game</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
+
   <div class="social">
     <a href="https://instagram.com/skvlogergj32" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.facebook.com/share/1CD5ZxmPUz/" target="_blank"><i class="fab fa-facebook"></i></a>
   </div>
 </nav>
 
-<!-- 🧠 TITLE -->
-<h1 class="title">🃏 Memory Card Game</h1>
-<h3 id="status">Find all matching pairs!</h3>
+<h1>🃏 Memory Card Game</h1>
+<h3 id="status">Find all the matching pairs!</h3>
 
-<!-- 🎲 GAME BOARD -->
 <div class="game-board" id="gameBoard"></div>
+
 <button id="restartBtn">🔄 Restart</button>
 
 <script src="memory.js"></script>
